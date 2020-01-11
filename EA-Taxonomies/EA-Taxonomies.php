@@ -41,5 +41,5 @@ This is because the function we are referring to is within the class, not in the
 
 $eaTaxonomies = new Admin\eaTaxonomies(__FILE__);
 $css_loader = new Util\CSS_Loader();
-$ea_taxonomy_options_page = new Admin\EA_Taxonomy_Options_Page();
+$ea_admin_page =  new Admin\EA_Admin_Page();
 
