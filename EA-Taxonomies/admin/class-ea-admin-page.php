@@ -80,7 +80,19 @@ add_menu_page(
  
     	public function myAdminPage() {
         // here is where the form is built for custom taxonomy data 
-		echo "<strong>here is where the form is built for custom taxonomy data </strong>";
+?>
+		<h3>EA Taxonomies</h3>
+		<p>
+		    <label for="meta-select" class="ea-row-title"><?php _e( 'Select an action', 'ea-textdomain' )?></label>
+		    <select name="meta-select" id="meta-select">
+		        <option value="create" ><?php _e( 'Create', 'ea-textdomain' )?></option>
+		        <option value="read" ><?php _e( 'Read', 'ea-textdomain' )?></option>
+		        <option value="update" ><?php _e( 'Update', 'ea-textdomain' )?></option>
+		        <option value="delete" ><?php _e( 'Delete', 'ea-textdomain' )?></option>
+		        <option value="help" ><?php _e( 'Help', 'ea-textdomain' )?></option>
+		    </select>
+		</p>
+<?php
     	}
  
 }
