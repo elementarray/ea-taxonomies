@@ -1,0 +1,8 @@
+div#normal-sortables,
+div#wp-content-editor-tools,
+div#post-body-content,
+div#minor-publishing,
+div#delete-action
+{
+	display: none;
+}

@@ -16,6 +16,20 @@
 namespace EA_Taxonomies\Admin\Util;
 
 class CSS_Loader implements Assets_Interface {
+ 
+    /**
+     * Registers the 'enqueue' function with the proper WordPress hook for
+     * registering stylesheets.
+     
+    public function init() {
+ 
+        add_action(
+            'admin_enqueue_scripts',
+            array( $this, 'enqueue' )
+        );
+ 
+    }
+ **/
 
     public function __construct(  ) {
 

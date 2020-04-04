@@ -1,0 +1,46 @@
+/**
+ * All of the CSS for your admin-specific functionality should be included in this file.
+ *
+ * The file is enqueued from inc/admin/class-admin.php.
+ */
+
+fieldset {
+  display: block;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  border: 1px solid black;
+}
+
+label{
+	float:left;
+	border-bottom:1px solid black;
+}
+
+input.ea_taxonomies_required_text_inputs, 
+input.ea_taxonomies_args_text_inputs,
+input.ea_taxonomies_capabilities_array_inputs,
+input.ea_taxonomies_labels_text_inputs,
+input.ea_taxonomies_args_array_rewrite_text_inputs,
+select#ea_taxonomies_args_array_rewrite_ep_mask_select{
+	float:right;
+}
+
+label#ea_taxonomies_args_array_rewrite_slug_label,
+label#ea_taxonomies_args_array_rewrite_ep_mask_label{
+	margin-left:4%;	
+}
+
+input.ea_taxonomies_args_checkbox_inputs,
+input.ea_taxonomies_args_array_rewrite_checkbox_inputs{float:left;}
+
+input.ea_taxonomies_args_array_rewrite_checkbox_inputs{
+	margin-left:2%;
+}
+.clear {
+    clear: both;
+}
+
