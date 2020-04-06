@@ -35,7 +35,7 @@ require_once( PLUGIN_NAME_DIR . 'inc/class-autoloader.php' ); //? inc?
 Inc\Autoloader::register();
 
 Admin\Register_Post_Type_EA_Taxonomy::init();
-Admin\Register_Custom_Taxonomies::init();
+// Admin\Register_Custom_Taxonomies::init(); //<-FIXME!
 
 
 // Change the output of post/bulk post updated messages.
