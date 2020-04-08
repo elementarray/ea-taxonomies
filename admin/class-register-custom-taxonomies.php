@@ -3,19 +3,6 @@
 namespace EA_Taxonomies\Admin;
 use EA_Taxonomies as NS;
 
-/**
-// static or instantiate? constructor or init()??
-// 
-	public function __construct() {
-		$this->hooks();
-	}
-	
-	private function hooks() {
-		add_action('init', array($this, register));
-	}
-	
-**/
-
 class Register_Custom_Taxonomies {
 	private static $plugin_name;
 	private static $plugin_version;

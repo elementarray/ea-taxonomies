@@ -35,8 +35,11 @@ require_once( PLUGIN_NAME_DIR . 'inc/class-autoloader.php' ); //? inc?
 Inc\Autoloader::register();
 register_activation_hook( __FILE__, array( NS . 'Util\Activator', 'activate' ) ); // STATIC HOOK REGISTRATION!!!
 register_deactivation_hook( __FILE__, array( NS . 'Util\Deactivator', 'deactivate' ) ); // STATIC HOOK REGISTRATION!!!
+
+
 Admin\Register_Post_Type_EA_Taxonomy::init();
 //Admin\Register_Custom_Taxonomies::init(); // <-FIXME
+add_action( 'init', array( NS . 'Admin\Register_Custom_Taxonomies','init' ) );
 
 
 // Change the output of post/bulk post updated messages.
