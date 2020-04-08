@@ -3,7 +3,7 @@
 * Plugin Name: 	EA Taxonomies
 * Plugin URI:        https://elementarray.com/ea-taxonomies/
 * Description:       create, read, update, delete taxonomies
-* Version:           0.1
+* Version:           0.99
 * Author:            Element Array
 * Author URI:        https://elementarray.com/author/eaadmin/
 * License:           GPL-3.0
@@ -33,9 +33,10 @@ define( NS . 'PLUGIN_TEXT_DOMAIN', 'ea' );				// 'ea'
 require_once( PLUGIN_NAME_DIR . 'inc/class-autoloader.php' ); //? inc?
 
 Inc\Autoloader::register();
-
+register_activation_hook( __FILE__, array( NS . 'Util\Activator', 'activate' ) ); // STATIC HOOK REGISTRATION!!!
+register_deactivation_hook( __FILE__, array( NS . 'Util\Deactivator', 'deactivate' ) ); // STATIC HOOK REGISTRATION!!!
 Admin\Register_Post_Type_EA_Taxonomy::init();
-Admin\Register_Custom_Taxonomies::init();
+//Admin\Register_Custom_Taxonomies::init(); // <-FIXME
 
 
 // Change the output of post/bulk post updated messages.

@@ -102,7 +102,7 @@ class Autoloader {
 		if ( file_exists( $filepath ) ) {
 	    		include_once( $filepath );
 		} else {
-	    		wp_die( esc_html( "**[class-autloadre.php]** The file attempting to be loaded at $filepath does not exist." ) );
+	    		wp_die( esc_html( "**[class-autloader.php]** The file attempting to be loaded at $filepath does not exist." ) );
 		}
    	}
 
