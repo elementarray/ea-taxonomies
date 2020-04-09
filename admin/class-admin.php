@@ -69,10 +69,7 @@ class Admin {
 		new EA_Metabox();//$post_id
 	}
 
-
 	/** Callback for the $admin_page_hook action hook **/
-	public function admin_page_content() {
-
-	}
+	public function admin_page_content() { }
 
 } // END class-Admin

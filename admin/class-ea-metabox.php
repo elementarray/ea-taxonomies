@@ -21,6 +21,7 @@ class EA_Metabox {
 	public function init_metabox() {
 
 		add_action( 'add_meta_boxes', array( $this, 'add_metabox'  )        );
+		add_action( 'add_meta_boxes', array( $this, 'add_side_metabox'  )        );
 		add_action( 'save_post',      array( $this, 'save_metabox' ), 10, 2 );
 
 	}
@@ -31,8 +32,8 @@ class EA_Metabox {
  
         	if ( in_array( $post_type, $post_types ) ) {
 
-			add_meta_box(
-				$this->plugin_name,
+			$test1 = add_meta_box(
+				$this->plugin_name.'_1',
 				__( 'EA Taxonomy', $this->plugin_text_domain ),
 				array( $this, 'render_metabox' ),
 				$post_type,
@@ -40,6 +41,42 @@ class EA_Metabox {
 				'default'
 			);
 		}
+
+	}
+
+	public function add_side_metabox($post_type) {
+        	$post_types = array( 'ea-taxonomies' );
+        	if ( in_array( $post_type, $post_types ) ) {
+            		$test2 = add_meta_box(
+                		$this->plugin_name.'_2',
+                		__( 'EA Taxonomy Assign to Post Type', $this->plugin_text_domain  ),
+                		array( $this, 'render_side_meta_box' ),
+                		$post_type,
+                		'side',
+                		'low'
+            		);
+
+		}
+
+	}
+
+	public function render_side_meta_box( $post ){
+		// Post types.
+		$options    = array();
+		$post_types = get_post_types( '', 'objects' );
+		unset( $post_types['mb-taxonomy'], $post_types['revision'], $post_types['nav_menu_item'] );
+
+		// Form fields.
+		_e('<table class="form-table">');
+
+		foreach ( $post_types as $post_type => $post_type_object ) {
+			$options[ $post_type ] = $post_type_object->labels->singular_name;
+
+			_e('<tr><th><label for="args_'.$options[ $post_type ].'" class="label-args_'.$options[ $post_type ].'">' . __( $options[ $post_type ], $this->plugin_text_domain ) . '</label></th>');
+			_e('<td><input type="checkbox" id="args_'.$options[ $post_type ].'" name="args_'.$options[ $post_type ].'" class="field-args_'.$options[ $post_type ].'" value="' . $options[ $post_type ] . '" ' . checked( $options[ $post_type ], 'checked', false ) . '> ' . __( '', $this->plugin_text_domain ).'<span class="description">' . __( $options[ $post_type ], $this->plugin_text_domain ) . '</span></td></tr>');
+		}
+
+		_e('</table>');
 
 	}
 

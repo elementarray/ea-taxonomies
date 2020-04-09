@@ -52,10 +52,12 @@ class Register_Custom_Taxonomies {
 		);
 
 		foreach ( $ea_taxonomies as $taxonomy ) {
-
+			
+			// #1 $args['post_types']? $post_meta as $meta_key=>$meta_value (must be prefixed with 'args_')
 			// calling get_taxonomy_data()
 			list( $labels, $args ) = self::get_taxonomy_data( $taxonomy->ID );//get_taxonomy_data() returns ($var1, $var2) ???
 			
+			// #2
 			// calling set_up_taxonomy()
 			$taxonomies[ $args['taxonomy'] ] = self::set_up_taxonomy( $labels, $args );
 		}
