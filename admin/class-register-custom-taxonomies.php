@@ -16,30 +16,29 @@ class Register_Custom_Taxonomies {
 	}
 
 	public static function register( ) {
-		// $LABELS // $ARGS
-		// self::$plugin_name, $args
-		// Get all registered custom taxonomies.
 
 		$taxonomies = self::get_taxonomies();  // calling get_taxonomies()
-
-		// debug
-		// echo count($taxonomies);
-		// print_r($taxonomies);
-
+		
 		foreach ( $taxonomies as $taxonomy => $args ) {
 			// THIS IS THE MONEY
-			// register_taxonomy( $taxonomy, $object_type, $args );
-			if(!taxonomy_exists($taxonomy)){ 
-// Register_taxonomy adds $taxonomy to the global variable $wp_taxonomies  
-// taxonomy.php line 461
-				register_taxonomy( $taxonomy, isset( $args['post_types'] ) ? $args['post_types'] : null, $args );
+			// Register_taxonomy adds $taxonomy to the global variable $wp_taxonomies  // taxonomy.php line 461
+
+			if(isset( $args['post_types'] )){
+				$post_types_array = $args['post_types'];
+				unset($args['post_types']);
+				unset($args['label']);
+				unset($args['rewrite_array']);
+	
+				$post_types_unserialized_array = unserialize(urldecode($post_types_array));
+	    			// var_dump($arr);
+	
+				register_taxonomy( $taxonomy, $post_types_unserialized_array , $args );
 			}
-			//echo "TAXONOMY=".$taxonomy." $args=".var_dump($args);
 		}
 
 	} // END static function register()
 
-	public static function get_taxonomies() {
+	public static function get_taxonomies() { 							// called 1st
 		// This array stores all cpt ea-taxonomies instances
 		$taxonomies = array();
 		// Get all post where where post_type = ea-taxonomies.
@@ -52,34 +51,22 @@ class Register_Custom_Taxonomies {
 		);
 
 		foreach ( $ea_taxonomies as $taxonomy ) {
-			
-			// #1 $args['post_types']? $post_meta as $meta_key=>$meta_value (must be prefixed with 'args_')
-			// calling get_taxonomy_data()
-			list( $labels, $args ) = self::get_taxonomy_data( $taxonomy->ID );//get_taxonomy_data() returns ($var1, $var2) ???
-			
-			// #2
-			// calling set_up_taxonomy()
-			$taxonomies[ $args['taxonomy'] ] = self::set_up_taxonomy( $labels, $args );
+
+			list( $labels, $args ) = self::get_taxonomy_data( $taxonomy->ID ); 		// called 2nd
+
+			$taxonomies[ $args['taxonomy'] ] = self::set_up_taxonomy( $labels, $args ); 	// called 3rd
 		}
+		// print_r($taxonomies); // at this point everything is in...
 		return $taxonomies;
 	}
 
 	public static function get_taxonomy_data( $ea_cpt_id ) {
 		// Get all post meta from current post.
-// if( ! get_post_meta( '1', 'non-existing_meta', true ) ) {}
-// if( ! get_post_meta( '1', 'non-existing_meta', false ) ) {}
-///////////////////////////////////////////////////////////////
 		$post_meta = get_post_meta( $ea_cpt_id );
-///////////////////////////////////////////////////////////////
-//	foreach($post_meta as $meta_key=>$meta_value) {
-//		echo $meta_key . ' : ' . $meta_value[0] . '<br/>';
-//	}
-// print_r($post_meta);
 		// Create array that contains Labels of this current custom taxonomy.
 		$labels = array();
 		// Create array that contains arguments of this current custom taxonomy.
 		$args = array();
-//////->//////////////////////
 
 		foreach ( $post_meta as $key => $value ) {
 			if ( false !== strpos( $key, 'label' ) ) {
@@ -105,10 +92,7 @@ class Register_Custom_Taxonomies {
 				// echo "<br/>";			
 			}
 		}
-
 		return array( $labels, $args );
-		//print_r( array( $labels, $args ) ); // YES IT DOES!!!
-//////->//////////////////////
 }
 
 	/** Setup labels, arguments for a custom taxonomy **/
@@ -155,7 +139,7 @@ class Register_Custom_Taxonomies {
 				'public' => true, // ADDS PUBLIC TO ARGS
 			)
 		);
-		/** HANDLE REWRITE ARGS
+
 		if ( empty( $args['rewrite_slug'] ) && empty( $args['rewrite_with_front'] ) ) {
 			$args['rewrite'] = true;
 		} else {
@@ -168,10 +152,9 @@ class Register_Custom_Taxonomies {
 			unset( $args['rewrite_no_front'] );
 			unset( $args['rewrite_hierarchical'] );
 		}
-		**/
+
 		unset( $args['taxonomy'] ); // REMOVES TAXONOMY ARG
 		return $args;
 	}
-
 
 } // END CLASS
