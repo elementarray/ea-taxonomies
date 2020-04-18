@@ -1,0 +1,684 @@
+# Blank WordPress Pot
+# Copyright 2014 ...
+# This file is distributed under the GNU General Public License v3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Blank WordPress Pot v1.0.0\n"
+"Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
+"POT-Creation-Date: 2020-04-17 19:10-0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Your Team <translations@example.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-admin.php:42
+msgid "EA Admin Page Title"
+msgstr ""
+
+#: admin/class-admin.php:43
+msgid "EA  Admin Menu Title"
+msgstr ""
+
+#: admin/class-ea-metabox.php:38
+msgid "EA Taxonomy"
+msgstr ""
+
+#: admin/class-ea-metabox.php:52
+msgid "EA Taxonomy Assign to Post Type"
+msgstr ""
+
+#: admin/class-ea-metabox.php:68 admin/class-ea-metabox.php:170
+msgid "<table class=\"form-table\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:74
+msgid "<tr><th><label for=\"args_"
+msgstr ""
+
+#: admin/class-ea-metabox.php:75
+msgid "<td><input type=\"checkbox\" id=\"args_"
+msgstr ""
+
+#: admin/class-ea-metabox.php:80
+msgid "</table>"
+msgstr ""
+
+#: admin/class-ea-metabox.php:172
+msgid "Name"
+msgstr ""
+
+#: admin/class-ea-metabox.php:172
+msgid "<tr><th><label for=\"label_name\" class=\"label-label_name\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:173
+msgid ""
+"<td><input type=\"text\" maxlength=\"32\" id=\"label_name\" name=\"label_name"
+"\" class=\"field-label_name\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:175
+msgid "Singular Name"
+msgstr ""
+
+#: admin/class-ea-metabox.php:175
+msgid ""
+"<tr><th><label for=\"label_singular_name\" class=\"label-label_singular_name"
+"\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:176
+msgid ""
+"<td><input type=\"text\" maxlength=\"32\" id=\"label_singular_name\" name="
+"\"label_singular_name\" class=\"field-label_singular_name\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:178
+msgid "Taxonomy"
+msgstr ""
+
+#: admin/class-ea-metabox.php:178
+msgid "<tr><th><label for=\"args_taxonomy\" class=\"label-args_taxonomy\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:179
+msgid ""
+"<td><input type=\"text\" maxlength=\"32\" id=\"args_taxonomy\" name="
+"\"args_taxonomy\" class=\"field-args_taxonomy\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:181
+msgid "Menu Name"
+msgstr ""
+
+#: admin/class-ea-metabox.php:181
+msgid "<tr><th><label for=\"label_menu_name\" class=\"label-label_menu_name\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:182
+msgid ""
+"<td><input type=\"text\" id=\"label_menu_name\" name=\"label_menu_name\" "
+"class=\"field-label_menu_name\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:184
+msgid "All Items"
+msgstr ""
+
+#: admin/class-ea-metabox.php:184
+msgid "<tr><th><label for=\"label_all_items\" class=\"label-label_all_items\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:185
+msgid ""
+"<td><input type=\"text\" id=\"label_all_items\" name=\"label_all_items\" "
+"class=\"field-label_all_items\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:187
+msgid "Edit Item"
+msgstr ""
+
+#: admin/class-ea-metabox.php:187
+msgid "<tr><th><label for=\"label_edit_item\" class=\"label-label_edit_item\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:188
+msgid ""
+"<td><input type=\"text\" id=\"label_edit_item\" name=\"label_edit_item\" "
+"class=\"field-label_edit_item\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:190
+msgid "View Item"
+msgstr ""
+
+#: admin/class-ea-metabox.php:190
+msgid "<tr><th><label for=\"label_view_item\" class=\"label-label_view_item\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:191
+msgid ""
+"<td><input type=\"text\" id=\"label_view_item\" name=\"label_view_item\" "
+"class=\"field-label_view_item\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:193
+msgid "Update Item"
+msgstr ""
+
+#: admin/class-ea-metabox.php:193
+msgid ""
+"<tr><th><label for=\"label_update_item\" class=\"label-label_update_item\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:194
+msgid ""
+"<td><input type=\"text\" id=\"label_update_item\" name=\"label_update_item\" "
+"class=\"field-label_update_item\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:196
+msgid "Add New Item"
+msgstr ""
+
+#: admin/class-ea-metabox.php:196
+msgid ""
+"<tr><th><label for=\"label_add_new_item\" class=\"label-label_add_new_item\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:197
+msgid ""
+"<td><input type=\"text\" id=\"label_add_new_item\" name=\"label_add_new_item"
+"\" class=\"field-label_add_new_item\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:199
+msgid "New Item Name"
+msgstr ""
+
+#: admin/class-ea-metabox.php:199
+msgid ""
+"<tr><th><label for=\"label_new_item_name\" class=\"label-label_new_item_name"
+"\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:200
+msgid ""
+"<td><input type=\"text\" id=\"label_new_item_name\" name="
+"\"label_new_item_name\" class=\"field-label_new_item_name\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:203
+msgid "Parent Item"
+msgstr ""
+
+#: admin/class-ea-metabox.php:203
+msgid ""
+"<tr><th><label for=\"label_parent_item\" class=\"label-label_parent_item\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:204
+msgid ""
+"<td><input type=\"text\" id=\"label_parent_item\" name=\"label_parent_item\" "
+"class=\"field-label_parent_item\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:206
+msgid "Parent Item Colon"
+msgstr ""
+
+#: admin/class-ea-metabox.php:206
+msgid ""
+"<tr><th><label for=\"label_parent_item_colon\" class=\"label-"
+"label_parent_item_colon\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:207
+msgid ""
+"<td><input type=\"text\" id=\"label_parent_item_colon\" name="
+"\"label_parent_item_colon\" class=\"field-label_parent_item_colon\" "
+"placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:209
+msgid "Search Items"
+msgstr ""
+
+#: admin/class-ea-metabox.php:209
+msgid ""
+"<tr><th><label for=\"label_search_items\" class=\"label-label_search_items\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:210
+msgid ""
+"<td><input type=\"text\" id=\"label_search_items\" name=\"label_search_items"
+"\" class=\"field-label_search_items\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:213
+msgid "Popular Items"
+msgstr ""
+
+#: admin/class-ea-metabox.php:213
+msgid ""
+"<tr><th><label for=\"label_popular_items\" class=\"label-label_popular_items"
+"\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:214
+msgid ""
+"<td><input type=\"text\" id=\"label_popular_items\" name="
+"\"label_popular_items\" class=\"field-label_popular_items\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:216
+msgid "Separate Items with Commas"
+msgstr ""
+
+#: admin/class-ea-metabox.php:216
+msgid ""
+"<tr><th><label for=\"label_separate_items_with_commas\" class=\"label-"
+"label_separate_items_with_commas\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:217
+msgid ""
+"<td><input type=\"text\" id=\"label_separate_items_with_commas\" name="
+"\"label_separate_items_with_commas\" class=\"field-"
+"label_separate_items_with_commas\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:219
+msgid "Add or Remove Items"
+msgstr ""
+
+#: admin/class-ea-metabox.php:219
+msgid ""
+"<tr><th><label for=\"label_add_or_remove_items\" class=\"label-"
+"label_add_or_remove_items\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:220
+msgid ""
+"<td><input type=\"text\" id=\"label_add_or_remove_items\" name="
+"\"label_add_or_remove_items\" class=\"field-label_add_or_remove_items\" "
+"placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:222
+msgid "Choose From Most Used"
+msgstr ""
+
+#: admin/class-ea-metabox.php:222
+msgid ""
+"<tr><th><label for=\"label_choose_from_most_used\" class=\"label-"
+"label_choose_from_most_used\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:223
+msgid ""
+"<td><input type=\"text\" id=\"label_choose_from_most_used\" name="
+"\"label_choose_from_most_used\" class=\"field-label_choose_from_most_used\" "
+"placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:225
+msgid "Not Found"
+msgstr ""
+
+#: admin/class-ea-metabox.php:225
+msgid "<tr><th><label for=\"label_not_found\" class=\"label-label_not_found\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:226
+msgid ""
+"<td><input type=\"text\" id=\"label_not_found\" name=\"label_not_found\" "
+"class=\"field-label_not_found\" placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:228 admin/class-ea-metabox.php:229
+msgid "Public?"
+msgstr ""
+
+#: admin/class-ea-metabox.php:228
+msgid "<tr><th><label for=\"args_public\" class=\"label-args_public\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:229
+msgid ""
+"<td><input type=\"checkbox\" id=\"args_public\" name=\"args_public\" class="
+"\"field-args_public\" value=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:231 admin/class-ea-metabox.php:232
+msgid "Publicly Queryable?"
+msgstr ""
+
+#: admin/class-ea-metabox.php:231
+msgid ""
+"<tr><th><label for=\"args_publicly_queryable\" class=\"label-"
+"args_publicly_queryable\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:232
+msgid ""
+"<td><input type=\"checkbox\" id=\"args_publicly_queryable\" name="
+"\"args_publicly_queryable\" class=\"field-args_publicly_queryable\" value=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:234 admin/class-ea-metabox.php:235
+msgid "Show UI?"
+msgstr ""
+
+#: admin/class-ea-metabox.php:234
+msgid "<tr><th><label for=\"args_show_ui\" class=\"label-args_show_ui\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:235
+msgid ""
+"<td><input type=\"checkbox\" id=\"args_show_ui\" name=\"args_show_ui\" class="
+"\"field-args_show_ui\" value=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:237 admin/class-ea-metabox.php:238
+msgid "Show in Menu?"
+msgstr ""
+
+#: admin/class-ea-metabox.php:237
+msgid ""
+"<tr><th><label for=\"args_show_in_menu\" class=\"label-args_show_in_menu\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:238
+msgid ""
+"<td><input type=\"checkbox\" id=\"args_show_in_menu\" name="
+"\"args_show_in_menu\" class=\"field-args_show_in_menu\" value=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:240 admin/class-ea-metabox.php:241
+msgid "Show in Nav Menus?"
+msgstr ""
+
+#: admin/class-ea-metabox.php:240
+msgid ""
+"<tr><th><label for=\"args_show_in_nav_menus\" class=\"label-"
+"args_show_in_nav_menus\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:241
+msgid ""
+"<td><input type=\"checkbox\" id=\"args_show_in_nav_menus\" name="
+"\"args_show_in_nav_menus\" class=\"field-args_show_in_nav_menus\" value=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:243 admin/class-ea-metabox.php:244
+msgid "Show Tag Cloud?"
+msgstr ""
+
+#: admin/class-ea-metabox.php:243
+msgid ""
+"<tr><th><label for=\"args_show_tagcloud\" class=\"label-args_show_tagcloud\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:244
+msgid ""
+"<td><input type=\"checkbox\" id=\"args_show_tagcloud\" name="
+"\"args_show_tagcloud\" class=\"field-args_show_tagcloud\" value=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:246 admin/class-ea-metabox.php:247
+msgid "Show In Quick Edit?"
+msgstr ""
+
+#: admin/class-ea-metabox.php:246
+msgid ""
+"<tr><th><label for=\"args_show_in_quick_edit\" class=\"label-"
+"args_show_in_quick_edit\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:247
+msgid ""
+"<td><input type=\"checkbox\" id=\"args_show_in_quick_edit\" name="
+"\"args_show_in_quick_edit\" class=\"field-args_show_in_quick_edit\" value=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:249
+msgid "Metabox Callback"
+msgstr ""
+
+#: admin/class-ea-metabox.php:249
+msgid ""
+"<tr><th><label for=\"args_meta_box_cb\" class=\"label-args_meta_box_cb\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:250
+msgid ""
+"<td><input type=\"text\" id=\"args_meta_box_cb\" name=\"args_meta_box_cb\" "
+"class=\"field-args_meta_box_cb\"     placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:252 admin/class-ea-metabox.php:253
+msgid "Show Admin Column?"
+msgstr ""
+
+#: admin/class-ea-metabox.php:252
+msgid ""
+"<tr><th><label for=\"args_show_admin_column\" class=\"label-"
+"args_show_admin_column\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:253
+msgid ""
+"<td><input type=\"checkbox\" id=\"args_show_admin_column\" name="
+"\"args_show_admin_column\" class=\"field-args_show_admin_column\" value=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:255
+msgid "Description"
+msgstr ""
+
+#: admin/class-ea-metabox.php:255
+msgid ""
+"<tr><th><label for=\"args_description\" class=\"label-args_description\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:256
+msgid ""
+"<td><input type=\"text\" id=\"args_description\" name=\"args_description\" "
+"class=\"field-args_description\"     placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:258 admin/class-ea-metabox.php:259
+msgid "Show in REST?"
+msgstr ""
+
+#: admin/class-ea-metabox.php:258
+msgid ""
+"<tr><th><label for=\"args_show_in_rest\" class=\"label-args_show_in_rest\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:259
+msgid ""
+"<td><input type=\"checkbox\" id=\"args_show_in_rest\" name="
+"\"args_show_in_rest\" class=\"field-args_show_in_rest\" value=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:261
+msgid "REST Base"
+msgstr ""
+
+#: admin/class-ea-metabox.php:261
+msgid "<tr><th><label for=\"args_rest_base\" class=\"label-args_rest_base\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:262
+msgid ""
+"<td><input type=\"text\" id=\"args_rest_base\" name=\"args_rest_base\" class="
+"\"field-args_rest_base\"     placeholder=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:264 admin/class-ea-metabox.php:265
+msgid "Hierarchical?"
+msgstr ""
+
+#: admin/class-ea-metabox.php:264
+msgid ""
+"<tr><th><label for=\"args_hierarchical\" class=\"label-args_hierarchical\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:265
+msgid ""
+"<td><input type=\"checkbox\" id=\"args_hierarchical\" name="
+"\"args_hierarchical\" class=\"field-args_hierarchical\" value=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:267 admin/class-ea-metabox.php:268
+msgid "Query Var?"
+msgstr ""
+
+#: admin/class-ea-metabox.php:267
+msgid "<tr><th><label for=\"args_query_var\" class=\"label-args_query_var\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:268
+msgid ""
+"<td><input type=\"checkbox\" id=\"args_query_var\" name=\"args_query_var\" "
+"class=\"field-args_query_var\" value=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:270 admin/class-ea-metabox.php:271
+msgid "Sort?"
+msgstr ""
+
+#: admin/class-ea-metabox.php:270
+msgid "<tr><th><label for=\"args_sort\" class=\"label-args_sort\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:271
+msgid ""
+"<td><input type=\"checkbox\" id=\"args_sort\" name=\"args_sort\" class="
+"\"field-args_sort\" value=\""
+msgstr ""
+
+#: admin/class-ea-metabox.php:273 admin/class-ea-metabox.php:274
+msgid "Rewrite Array?"
+msgstr ""
+
+#: admin/class-ea-metabox.php:273
+msgid "<tr><th><label for=\"args_rewrite\" class=\"label-args_rewrite\">"
+msgstr ""
+
+#: admin/class-ea-metabox.php:274
+msgid ""
+"<td><input type=\"checkbox\" id=\"args_rewrite\" name=\"args_rewrite\" class="
+"\"field-args_rewrite\" value=\""
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:111
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:113
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:115
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:117
+#, php-format
+msgid "Update %s"
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:119
+#, php-format
+msgid "Add new %s"
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:121
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:123
+#, php-format
+msgid "Parent %s"
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:125
+#, php-format
+msgid "Parent %s:"
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:127
+#, php-format
+msgid "Search %s"
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:129
+#, php-format
+msgid "Popular %s"
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:131
+#, php-format
+msgid "Separate %s with commas"
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:133
+#, php-format
+msgid "Add or remove %s"
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:135
+#, php-format
+msgid "Choose most used %s"
+msgstr ""
+
+#: admin/class-register-custom-taxonomies.php:137
+#, php-format
+msgid "No %s found"
+msgstr ""
+
+#: admin/class-register-post-type-ea-taxonomy.php:29
+#: admin/class-register-post-type-ea-taxonomy.php:44
+msgid "s"
+msgstr ""
+
+#: admin/class-register-post-type-ea-taxonomy.php:31
+#: admin/class-register-post-type-ea-taxonomy.php:32
+msgid "Parent "
+msgstr ""
+
+#: admin/class-register-post-type-ea-taxonomy.php:34
+msgid "Add New "
+msgstr ""
+
+#: admin/class-register-post-type-ea-taxonomy.php:35
+msgid "Add New"
+msgstr ""
+
+#: admin/class-register-post-type-ea-taxonomy.php:36
+msgid "New "
+msgstr ""
+
+#: admin/class-register-post-type-ea-taxonomy.php:37
+msgid "Edit "
+msgstr ""
+
+#: admin/class-register-post-type-ea-taxonomy.php:38
+msgid "Update "
+msgstr ""
+
+#: admin/class-register-post-type-ea-taxonomy.php:39
+msgid "View "
+msgstr ""
+
+#: admin/class-register-post-type-ea-taxonomy.php:40
+msgid "Search "
+msgstr ""
+
+#: admin/class-register-post-type-ea-taxonomy.php:41
+msgid "Not found"
+msgstr ""
+
+#: admin/class-register-post-type-ea-taxonomy.php:42
+msgid "Not found in Trash"
+msgstr ""
