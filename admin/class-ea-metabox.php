@@ -29,7 +29,7 @@ class EA_Metabox {
         // Limit meta box to certain post types.
         	$post_types = array( 'ea-taxonomies' );
         	if ( in_array( $post_type, $post_types ) ) {
-			$test1 = add_meta_box(
+			add_meta_box(
 				$this->plugin_name.'_1',
 				__( 'EA Taxonomy', $this->plugin_text_domain ),
 				array( $this, 'render_metabox' ),
@@ -43,7 +43,7 @@ class EA_Metabox {
 	public function add_side_metabox($post_type) {
         	$post_types = array( 'ea-taxonomies' );
         	if ( in_array( $post_type, $post_types ) ) {
-            		$test2 = add_meta_box(
+            		add_meta_box(
                 		$this->plugin_name.'_2',
                 		__( 'EA Taxonomy Assign to Post Type', $this->plugin_text_domain  ),
                 		array( $this, 'render_side_meta_box' ),
@@ -55,37 +55,39 @@ class EA_Metabox {
 	}
 
 	public function render_side_meta_box( $post ){
-		// Post types.
+
 		$options    = array();
 		$post_types = get_post_types( '', 'objects' );
 		unset( $post_types['ea-taxonomies'], $post_types['revision'], $post_types['nav_menu_item'] );
 
-		// Form fields.
+		$post_meta_args_post_types = get_post_meta( $post->ID, 'args_post_types' );
+
 		_e('<table class="form-table">');
 
 		$inc = 0;
+		$checked_attribute = "";
+
 		foreach ( $post_types as $post_type => $post_type_object ) {
+
+			foreach($post_meta_args_post_types as $sub_array){
+				if (in_array(strtolower($post_type_object->labels->singular_name), $sub_array))$checked_attribute = "checked"; 
+			}
 			$the_taxonomy = strtolower($post_type_object->labels->singular_name);
-			/** name="args_post_types['.$inc.']" is key in getting the $_POST variable correct **/
+			
 			_e('<tr><th><label for="args_'.$the_taxonomy.'" class="label-args_'.$the_taxonomy.'">' . __( $the_taxonomy, $this->plugin_text_domain ) . '</label></th>');
-			_e('<td><input type="checkbox" id="args_'.$the_taxonomy.'" name="args_post_types[]" class="field-args_'.$the_taxonomy.'" value="' . $the_taxonomy. '" > ' . __( '', $this->plugin_text_domain ).'<span class="description">' . __( $the_taxonomy, $this->plugin_text_domain ) . '</span></td></tr>');
+			_e('<td><input type="checkbox" id="args_'.$the_taxonomy.'" name="args_post_types[]" class="field-args_'.$the_taxonomy.'" value="' . $the_taxonomy. '" '.$checked_attribute.'  > ' . __( '', $this->plugin_text_domain ).'<span class="description">' . __( $the_taxonomy, $this->plugin_text_domain ) . '</span></td></tr>');
 
 			$inc += 1;
+			$checked_attribute = "";
 		}
 		unset($inc);
 		_e('</table>');
 
-		/////////////////////////////////////////////////////////////////////////
-		//get_post_meta( int $post_id, string $key = '', bool $single = false )//
-
-		//$args_post_types = get_post_meta( $post->ID, 'args_post_types' ); // default:false (returns all values as array)
-		//if( empty( $args_post_types ) ) $args_post_types = 'post';
 	}
 
-	public function render_metabox( $post ) {
-		// Add nonce for security and authentication.
-		wp_nonce_field( 'ea_taxonomies_nonce_action', 'ea_taxonomies_nonce' );
 
+
+	public function render_metabox( $post ) {
 		// Basic fields
 		$label_name = get_post_meta( $post->ID, 'label_name', true );
 		$label_singular_name = get_post_meta( $post->ID, 'label_singular_name', true );
@@ -125,25 +127,25 @@ class EA_Metabox {
 		$args_rewrite = get_post_meta( $post->ID, 'args_rewrite', true );
 
 		// Set Basic fields default values
-		if( $label_name === '' ) $label_name = $post->post_title;
-		if( $label_singular_name === '' ) $label_singular_name = 'Post Tag';
+		if( empty($label_name)) $label_name === $post->post_title;
+		if( empty( $label_singular_name === '' ) ) $label_singular_name = $label_name;
 		if( empty( $args_taxonomy ) ) $args_taxonomy = $label_name;
 		// Set Labels fields (text inputs) default values
-		if( $label_menu_name === '' ) $label_menu_name = $label_name;
-		if( $label_all_items === '' ) $label_all_items = 'All '.$label_name;
-		if( $label_edit_item === ''  ) $label_edit_item = 'Edit '.$label_name;
-		if( $label_view_item === ''  ) $label_view_item = 'View '.$label_name;
-		if( $label_update_item === ''  ) $label_update_item = 'Update '.$label_name;
-		if( $label_add_new_item === ''  ) $label_add_new_item = 'Add New '.$label_name;
-		if( $label_new_item_name === ''  ) $label_new_item_name = 'New '.$label_name. 'Name';
-		if( $label_parent_item === ''  ) $label_parent_item = null; // non-hierarchal default
-		if( $label_parent_item_colon === ''  ) $label_parent_item_colon = null; // non-hierarchal default
-		if( $label_search_items === ''  ) $label_search_items = 'Search '.$label_name;
-		if( $label_popular_items === ''  ) $label_popular_items = 'Popular '.$label_name; // or null
-		if( $label_separate_items_with_commas === ''  ) $label_separate_items_with_commas = 'Separate '.$label_name.' with commas'; // or null
-		if( $label_add_or_remove_items === ''  ) $label_add_or_remove_items = 'Add or remove '.$label_name; // or null
-		if( $label_choose_from_most_used === ''  ) $label_choose_from_most_used = 'Choose from the most used  '.$label_name; // or null
-		if( $label_not_found === ''  ) $label_not_found = 'No  '.$label_name.' found.';
+		if( empty( $label_menu_name === '' ) ) $label_menu_name = $label_name;
+		if( empty( $label_all_items === '' ) ) $label_all_items = 'All '.$label_name;
+		if( empty( $label_edit_item === ''  ) ) $label_edit_item = 'Edit '.$label_name;
+		if( empty( $label_view_item === ''  ) ) $label_view_item = 'View '.$label_name;
+		if( empty( $label_update_item === ''  ) ) $label_update_item = 'Update '.$label_name;
+		if( empty( $label_add_new_item === ''  ) ) $label_add_new_item = 'Add New '.$label_name;
+		if( empty( $label_new_item_name === ''  ) ) $label_new_item_name = 'New '.$label_name. 'Name';
+		if( empty( $label_parent_item === ''  ) ) $label_parent_item = null; // non-hierarchal default
+		if( empty( $label_parent_item_colon === ''  ) ) $label_parent_item_colon = null; // non-hierarchal default
+		if( empty( $label_search_items === ''  ) ) $label_search_items = 'Search '.$label_name;
+		if( empty( $label_popular_items === ''  ) ) $label_popular_items = 'Popular '.$label_name; // or null
+		if( empty( $label_separate_items_with_commas === ''  ) ) $label_separate_items_with_commas = 'Separate '.$label_name.' with commas'; // or null
+		if( empty( $label_add_or_remove_items === ''  ) ) $label_add_or_remove_items = 'Add or remove '.$label_name; // or null
+		if( empty( $label_choose_from_most_used === ''  ) ) $label_choose_from_most_used = 'Choose from the most used  '.$label_name; // or null
+		if( empty( $label_not_found === ''  ) ) $label_not_found = 'No  '.$label_name.' found.';
 		// Set Advanced fields (check inputs) default values
 		if( empty( $args_public ) ) $args_public = 'checked';
 		if( empty( $args_publicly_queryable ) ) $args_publicly_queryable = null;
@@ -279,23 +281,11 @@ class EA_Metabox {
 		// Check if it's not a revision.
 		if ( wp_is_post_revision( $post_id ) ) return;
 
-
-
-		// Add nonce for security and authentication.
-		if ( ! isset( $_POST['ea_taxonomies_nonce'] ) ) { print 'Nonce Not in $_POST'; exit; }
-		else{ $nonce_name   = $_POST['ea_taxonomies_nonce']; }
-		if ( ! wp_verify_nonce( $_POST['ea_taxonomies_nonce'], 'ea_taxonomies_nonce_action' ) ){ print 'Nonce Action Not in $_POST';  exit;  }
-		else{ $nonce_action = 'ea_taxonomies_nonce_action'; }
-		// Check if a nonce is set.
-		if ( ! isset( $nonce_name ) ) return;
-		// Check if a nonce is valid.
-		if ( ! wp_verify_nonce( $nonce_name, $nonce_action ) ) return;
-
-
+		//if( empty( $args_taxonomy ) ) $args_taxonomy = $label_name;
 		// Sanitize user input.
-		$new_label_name = isset( $_POST[ 'label_name' ] ) ? sanitize_text_field( $_POST[ 'label_name' ] ) : '';
+		$new_label_name = (isset( $_POST[ 'label_name' ] ) ) ? sanitize_text_field( $_POST[ 'label_name' ] ) : '';
 		$new_label_singular_name = isset( $_POST[ 'label_singular_name' ] ) ? sanitize_text_field( $_POST[ 'label_singular_name' ] ) : '';
-		$new_args_taxonomy = isset( $_POST[ 'args_taxonomy' ] ) ? sanitize_text_field( $_POST[ 'args_taxonomy' ] ) : '';
+		$new_args_taxonomy = isset( $_POST[ 'args_taxonomy' ] ) ? sanitize_text_field( $_POST[ 'args_taxonomy' ] ) : 'default911';
 		$new_label_menu_name = isset( $_POST[ 'label_menu_name' ] ) ? sanitize_text_field( $_POST[ 'label_menu_name' ] ) : '';
 		$new_label_all_items = isset( $_POST[ 'label_all_items' ] ) ? sanitize_text_field( $_POST[ 'label_all_items' ] ) : '';
 		$new_label_edit_item = isset( $_POST[ 'label_edit_item' ] ) ? sanitize_text_field( $_POST[ 'label_edit_item' ] ) : '';

@@ -17,25 +17,20 @@ class Register_Custom_Taxonomies {
 
 	public static function register( ) {
 
-		$taxonomies = self::get_taxonomies();  // calling get_taxonomies()
-		
+		$taxonomies = self::get_taxonomies();
+		//echo var_dump($taxonomies);
 		foreach ( $taxonomies as $taxonomy => $args ) {
-			// THIS IS THE MONEY
-			// Register_taxonomy adds $taxonomy to the global variable $wp_taxonomies  // taxonomy.php line 461
-
 			if(isset( $args['post_types'] )){
 				$post_types_array = $args['post_types'];
-				unset($args['post_types']);
-				unset($args['label']);
-				unset($args['rewrite_array']);
-	
 				$post_types_unserialized_array = unserialize(urldecode($post_types_array));
-	    			// var_dump($arr);
-	
+				print_r($post_types_unserialized_array);
+				echo "</br>";
 				register_taxonomy( $taxonomy, $post_types_unserialized_array , $args );
+				echo "taxonomy = ";
+				print_r($taxonomy);
+				echo "</br>";
 			}
 		}
-
 	} // END static function register()
 
 	public static function get_taxonomies() { 							// called 1st
@@ -44,52 +39,32 @@ class Register_Custom_Taxonomies {
 		// Get all post where where post_type = ea-taxonomies.
 		$ea_taxonomies = get_posts(
 			array(
-				'posts_per_page' => - 1,
-				'post_status'    => 'publish',
-				'post_type'      => 'ea-taxonomies',
+				'posts_per_page'	=> - 1,
+				'post_status'   	=> 'publish',
+				'post_type'		=> 'ea-taxonomies',
 			)
 		);
 
 		foreach ( $ea_taxonomies as $taxonomy ) {
 
 			list( $labels, $args ) = self::get_taxonomy_data( $taxonomy->ID ); 		// called 2nd
-
 			$taxonomies[ $args['taxonomy'] ] = self::set_up_taxonomy( $labels, $args ); 	// called 3rd
 		}
-		// print_r($taxonomies); // at this point everything is in...
+		//print_r($taxonomies);
 		return $taxonomies;
 	}
 
 	public static function get_taxonomy_data( $ea_cpt_id ) {
 		// Get all post meta from current post.
 		$post_meta = get_post_meta( $ea_cpt_id );
-		// Create array that contains Labels of this current custom taxonomy.
 		$labels = array();
-		// Create array that contains arguments of this current custom taxonomy.
 		$args = array();
 
 		foreach ( $post_meta as $key => $value ) {
 			if ( false !== strpos( $key, 'label' ) ) {
-				// If post meta has prefix 'label' then add it to $labels.
-				// @codingStandardsIgnoreLine
-				// make sure single value not array
-				//$data = 1 == count( $value ) ? $value[0] : $value;
-
 				$labels[ str_replace( 'label_', '', $key ) ] = $value[0];//$data;
-				// echo "labels=".$labels[str_replace( 'label_', '', $key )];
-				// echo "<br/>";
-
 			} elseif ( false !== strpos( $key, 'args' ) ) {
-				// If post meta has prefix 'args' then add it to $args.
-				// @codingStandardsIgnoreLine
-				// make sure single value not array
-				//$data = 1 == count( $value ) ? $value[0] : $value;
-				// check for checkbox (t||f)
-				//$data = is_numeric( $data ) ? ( 1 === intval( $data ) ? true : false ) : $data;
-				
-				$args[ str_replace( 'args_', '', $key ) ] = $value[0];//$data;
-				// echo "args=".$args[str_replace( 'args_', '', $key )];
-				// echo "<br/>";			
+				$args[ str_replace( 'args_', '', $key ) ] = $value[0];//$data;			
 			}
 		}
 		return array( $labels, $args );
@@ -148,9 +123,9 @@ class Register_Custom_Taxonomies {
 			if ( ! empty( $args['rewrite_with_front'] ) ) { $rewrite['with_front'] = false; }
 			if ( ! empty( $args['rewrite_hierarchical'] ) ) { $rewrite['hierarchical'] = true; }
 			$args['rewrite'] = $rewrite;
-			unset( $args['rewrite_slug'] );
-			unset( $args['rewrite_no_front'] );
-			unset( $args['rewrite_hierarchical'] );
+			//unset( $args['rewrite_slug'] );
+			//unset( $args['rewrite_no_front'] );
+			//unset( $args['rewrite_hierarchical'] );
 		}
 
 		unset( $args['taxonomy'] ); // REMOVES TAXONOMY ARG

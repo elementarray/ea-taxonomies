@@ -24,13 +24,13 @@ class Admin {
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/ea-taxonomies-admin.css', array(), $this->version, 'all' );
 	}
 
-	/** Register the JavaScript for the admin area **/
+	// Register the JavaScript for the admin area
 	public function enqueue_scripts() {
-		$params = array ( 'ajaxurl' => admin_url( 'admin-ajax.php' ) );
+		//$params = array ( 'ajaxurl' => admin_url( 'admin-ajax.php' ) );
 		wp_enqueue_script( 'ea_ajax_handle', plugin_dir_url( __FILE__ ) . 'js/ea-taxonomies-ajax-handler.js', array( 'jquery' ), $this->version, false );				
-		wp_localize_script( 'ea_ajax_handle', 'params', $params );		
+		//wp_localize_script( 'ea_ajax_handle', 'params', $params );		
 	}
-	
+
 	/** Callback for the admin menu **/
 	public function add_ea_taxonomy_menu() { // Init{}
 		// Add a submenu page and save the returned hook suffix.
