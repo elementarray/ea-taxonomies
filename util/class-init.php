@@ -24,7 +24,7 @@ class Init {
 		$this->plugin_basename = NS\PLUGIN_BASENAME;
 		$this->plugin_text_domain = NS\PLUGIN_TEXT_DOMAIN;
 		$this->load_dependencies();
-		//$this->set_locale();
+		$this->set_locale();
 		$this->define_admin_hooks();
     	}
 
@@ -49,7 +49,6 @@ class Init {
 	 * @access    private
 	 */
 
-	/**
 	private function set_locale() {
 		// MISSING $this ?????????????????????????????????????????
 		$plugin_i18n = new Internationalization_i18n( $this->plugin_text_domain );
@@ -57,7 +56,6 @@ class Init {
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
 	}
-	**/
 
 	/**
 	 * Register admin hooks
@@ -76,6 +74,13 @@ class Init {
 
 		// It runs after the basic admin panel menu structure is in place.
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_ea_taxonomy_menu' ); // defined in Admin{}	
+
+		$this->loader->add_action( 'init',  'EA_Taxonomies\\Admin\Register_Post_Type_EA_Taxonomy','init'  );
+		$this->loader->add_action( 'init',  'EA_Taxonomies\\Admin\Register_Custom_Taxonomies','init'  );
+		//$this->loader->add_action( 'save_post',  'EA_Taxonomies\\Admin\EA_Metabox', 'save_metabox', 10, 2 );
+
+		// 'EA_Taxonomies\\Admin\EA_Metabox'
+
 		/** register admin notices **/
 		//$this->loader->add_action( 'admin_notices', $plugin_admin, 'print_plugin_admin_notices');
 	}

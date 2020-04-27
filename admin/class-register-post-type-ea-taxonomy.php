@@ -15,6 +15,9 @@ class Register_Post_Type_EA_Taxonomy {
 		self::$plugin_text_domain = NS\PLUGIN_TEXT_DOMAIN;
 		self::register();
 		// add_action('init', 'Register_Custom_Taxonomies::init');
+		add_filter( 'post_updated_messages', array( get_class(), 'updated_message' ), 10, 1 );
+		add_filter( 'bulk_post_updated_messages', array( get_class(), 'bulk_updated_messages' ), 10, 2 );
+	
 	}
 
 	public static function register( ) {
@@ -54,8 +57,8 @@ class Register_Post_Type_EA_Taxonomy {
 		register_post_type( self::$plugin_name, $args );
 	} // END static function register()
 
-/**
-	public function updated_message( $messages ) {
+
+	public static function updated_message( $messages ) {
 		$post     = get_post();
 		$revision = filter_input( INPUT_GET, 'revision', FILTER_SANITIZE_NUMBER_INT );
 
@@ -71,32 +74,30 @@ class Register_Post_Type_EA_Taxonomy {
 			7  => __( 'Taxonomy saved.', self::$plugin_text_domain ),
 			8  => __( 'Taxonomy submitted.', self::$plugin_text_domain ),
 			// translators: %s: Date and time of the revision.
-			9  => sprintf( __( 'Taxonomy scheduled for: <strong>%s</strong>.', self::$plugin_text_domain ), date_i18n( __( 'M j, Y @ G:i', $this->plugin_text_domain ), strtotime( $post->post_date ) ) ),
+			9  => sprintf( __( 'Taxonomy scheduled for: <strong>%s</strong>.', self::$plugin_text_domain ), date_i18n( __( 'M j, Y @ G:i', self::$plugin_text_domain ), strtotime( $post->post_date ) ) ),
 			10 => __( 'Taxonomy draft updated.', self::$plugin_text_domain ),
 		);
 
 		return $messages;
 	}
-**/
 
-/**
-	public function bulk_updated_messages( $bulk_messages, $bulk_counts ) {
+	public static function bulk_updated_messages( $bulk_messages, $bulk_counts ) {
 		$bulk_messages['ea taxonomy'] = array(
 			// translators: %s: Name of the taxonomy in singular and plural form.
-			'updated'   => sprintf( _n( '%s taxonomy updated.', '%s taxonomies updated.', $bulk_counts['updated'], $this->plugin_text_domain ), $bulk_counts['updated'] ),
+			'updated'   => sprintf( _n( '%s taxonomy updated.', '%s taxonomies updated.', $bulk_counts['updated'], self::$plugin_text_domain ), $bulk_counts['updated'] ),
 			// translators: %s: Name of the taxonomy in singular and plural form.
-			'locked'    => sprintf( _n( '%s taxonomy not updated, somebody is editing.', '%s taxonomies not updated, somebody is editing.', $bulk_counts['locked'], $this->plugin_text_domain ), $bulk_counts['locked'] ),
+			'locked'    => sprintf( _n( '%s taxonomy not updated, somebody is editing.', '%s taxonomies not updated, somebody is editing.', $bulk_counts['locked'], self::$plugin_text_domain ), $bulk_counts['locked'] ),
 			// translators: %s: Name of the taxonomy in singular and plural form.
-			'deleted'   => sprintf( _n( '%s taxonomy permanently deleted.', '%s taxonomies permanently deleted.', $bulk_counts['deleted'], $this->plugin_text_domain ), $bulk_counts['deleted'] ),
+			'deleted'   => sprintf( _n( '%s taxonomy permanently deleted.', '%s taxonomies permanently deleted.', $bulk_counts['deleted'], self::$plugin_text_domain ), $bulk_counts['deleted'] ),
 			// translators: %s: Name of the taxonomy in singular and plural form.
-			'trashed'   => sprintf( _n( '%s taxonomy moved to the Trash.', '%s taxonomies moved to the Trash.', $bulk_counts['trashed'], $this->plugin_text_domain ), $bulk_counts['trashed'] ),
+			'trashed'   => sprintf( _n( '%s taxonomy moved to the Trash.', '%s taxonomies moved to the Trash.', $bulk_counts['trashed'], self::$plugin_text_domain ), $bulk_counts['trashed'] ),
 			// translators: %s: Name of the taxonomy in singular and plural form.
-			'untrashed' => sprintf( _n( '%s taxonomy restored from the Trash.', '%s taxonomies restored from the Trash.', $bulk_counts['untrashed'], $this->plugin_text_domain ), $bulk_counts['untrashed'] ),
+			'untrashed' => sprintf( _n( '%s taxonomy restored from the Trash.', '%s taxonomies restored from the Trash.', $bulk_counts['untrashed'], self::$plugin_text_domain ), $bulk_counts['untrashed'] ),
 		);
 
 		return $bulk_messages;
 	}
-**/
+
 
 /**
 	public function my_contextual_help( $contextual_help, $screen_id, $screen ) { 
